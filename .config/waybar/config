@@ -10,7 +10,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces","custom/block0","custom/arrow0","sway/mode"],
     "modules-center": [],
-    "modules-right": ["custom/arrow1","pulseaudio","custom/arrow2","cpu","custom/arrow3","memory","custom/arrow4","custom/pacman","custom/arrow5","network","custom/arrow6","battery","custom/arrow7","clock"],
+    "modules-right": ["custom/arrow1","pulseaudio","custom/arrow2","cpu","custom/arrow3","memory","custom/arrow8","custom/vpn","custom/arrow4","custom/pacman","custom/arrow5","network","custom/arrow6","battery","custom/arrow7","clock"],
     // Modules configuration
      "sway/workspaces": {
          "disable-scroll": true,
@@ -39,6 +39,13 @@
         "format": "{capacity}% {icon}",
         "format-icons": ["", "", "", "", ""],
         "max-length": 25
+    },
+    "custom/vpn": {
+    "interval": 5,
+    "tooltip": false,
+    "format": "{}",
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/wbm_vpn"
     },
     "network": {
         // "interface": "wlp2s0", // (Optional) To force the use of this interface
@@ -99,9 +106,6 @@
         "format": ""
     },
     "custom/arrow8": {
-        "format": ""
-    },
-    "custom/arrow9": {
         "format": ""
     }
 }

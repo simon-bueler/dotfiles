@@ -95,6 +95,14 @@ label:focus {
     background-color: #051515;
 }
 
+#custom-vpn {
+    background-color: #051515;
+}
+
+#custom-vpn.down {
+  border-bottom: 2px solid #dd2241;
+}
+
 #network.disconnected {
     background: transparent;
 }
@@ -146,7 +154,7 @@ the bar in a problematic way */
 #custom-arrow4 {
 	font-size: 130%;
 	color: #196767;
-	background: #0f3e3e;
+	background: #051515;
 }
 
 #custom-arrow5 {
@@ -164,11 +172,11 @@ the bar in a problematic way */
 #custom-arrow7 {
 	font-size: 130%;
 	color: #051515;
-	background: #0a2929;
+	background: #0f3e3e;
 }
 
 #custom-arrow8 {
 	font-size: 130%;
 	color: #051515;
-	background: #0a2929;
+	background: #0f3e3e;
 }
