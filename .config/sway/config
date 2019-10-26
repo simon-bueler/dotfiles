@@ -22,7 +22,14 @@ set $term kitty
 
 set $filemanager nautilus
 
+################----------------THEMING----------------################
 
+font Fira Mono 9
+
+default_border pixel 3
+smart_borders on
+
+gaps inner 6
 
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
@@ -261,6 +268,9 @@ bindsym $mod+r mode "resize"
     bindsym XF86AudioNext exec playerctl next
     bindsym XF86AudioPrev exec playerctl previous
     bindsym $mod+Shift+Return exec $filemanager
+
+    # Screenshots
+    bindsym Print exec grim \"$HOME/Pictures/Printscreens/$(date +%c).png"
 
 #
 # Status Bar:
