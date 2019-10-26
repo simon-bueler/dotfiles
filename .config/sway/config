@@ -280,7 +280,7 @@ bindsym $mod+r mode "resize"
     bindsym $mod+Shift+Return exec $filemanager
 
     # Screenshots
-    bindsym Print exec grim \"$HOME/Pictures/Printscreens/$(date +%c).png"
+    bindsym Print exec grim \"$HOME/Pictures/Screenshot_$(date +%Y%m%d)_$(date +%H%M%S).png"
 
 #
 # Status Bar:
