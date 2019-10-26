@@ -1,0 +1,107 @@
+/* Thank you to u/Krudjan for sharing their dotfiles, I used
+   https://gitlab.com/Krudjan/dotfiles/tree/master/waybar/.config/waybar
+   as a reference when writing this */
+
+{
+    "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar at the bottom of your screen
+    "height": 20, // Waybar height
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["sway/workspaces","custom/block0","custom/arrow0","sway/mode"],
+    "modules-center": [],
+    "modules-right": ["custom/arrow1","pulseaudio","custom/arrow2","cpu","custom/arrow3","memory","custom/arrow4","custom/pacman","custom/arrow5","network","custom/arrow6","battery","custom/arrow7","clock"],
+    // Modules configuration
+     "sway/workspaces": {
+         "disable-scroll": true,
+         "format": "{name}"
+     },
+    "sway/mode": {
+        "format": "!"
+    },
+    "clock": {
+	    "format": "{:%a, %b %-d %-I:%M %p}"
+    },
+    "cpu": {
+        "format": "{usage}% "
+    },
+    "memory": {
+        "format": "{}% ",
+	"on-click": "kitty -e htop"
+    },
+    "battery": {
+    "bat": "BAT0",
+    "interval": 60,
+    "states": {
+        "warning": 30,
+        "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "max-length": 25
+    },
+    "network": {
+        // "interface": "wlp2s0", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-disconnected": "Disconnected ⚠",
+        "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center network" 
+    },
+    "pulseaudio": {
+        "scroll-step": 5,
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+    "custom/pacman": {
+        "format": "{}  ",
+        "interval": 3600,                     // every hour
+        "exec": "checkupdates | wc -l",       // # of updates
+        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "on-click": "pamac-manager", // update system
+        "signal": 8
+    },
+    "custom/block0": {
+        "format": "█"
+    },
+    "custom/arrow0": {
+        "format": ""
+    },
+    "custom/arrow1": {
+        "format": ""
+    },
+    "custom/arrow2": {
+        "format": ""
+    },
+    "custom/arrow3": {
+        "format": ""
+    },
+    "custom/arrow4": {
+        "format": ""
+    },
+    "custom/arrow5": {
+        "format": ""
+    },
+    "custom/arrow6": {
+        "format": ""
+    },
+    "custom/arrow7": {
+        "format": ""
+    },
+    "custom/arrow8": {
+        "format": ""
+    },
+    "custom/arrow9": {
+        "format": ""
+    }
+}
