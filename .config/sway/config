@@ -136,7 +136,12 @@ exec swayidle -w \
     bindsym $mod+Alt+l exec  swaylock -c "#000000"
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaynag -t warning -m \
+        'You pressed the exit shortcut. What do you want?' \
+        -b 'Logout' 'swaymsg exit' \
+        -b 'Sleep' 'systemctl suspend' \
+        -b 'Reboot' 'systemctl reboot' \
+        -b 'Poweroff' 'systemctl poweroff'
 #
 # Moving around:
 #
