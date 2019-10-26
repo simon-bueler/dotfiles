@@ -99,6 +99,13 @@ exec swayidle -w \
 #       middle_emulation enabled
 #   }
 #
+
+    input "DELL081C:00 044E:121F Touchpad" {
+        dwt enabled
+        tap enabled
+        natural_scroll enabled
+    }
+
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 
@@ -124,6 +131,9 @@ exec swayidle -w \
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
+
+    #sway lock
+    bindsym $mod+Alt+l exec  swaylock -c "#000000"
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
