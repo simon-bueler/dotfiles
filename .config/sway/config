@@ -6,7 +6,7 @@
 
 ### Default sway settings
 # Please adjust in user-config
-    
+
     # Logo key. Use Mod1 for Alt.
     set $mod Mod4
     # Home row direction keys, like vim
@@ -233,6 +233,6 @@ exec --no-startup-id flashfocus &
 #exec dunst &
 exec slack &
 exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always mako
 include /etc/sway/config.d/*
