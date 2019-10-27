@@ -57,7 +57,12 @@
     bindsym $mod+Shift+c reload
 
     #sway lock
-    bindsym $mod+Alt+l exec  swaylock -c "#000000"
+    bindsym Ctrl+Alt+l exec  gdbus call \
+                                --system \
+                                --object-path /org/gnome/DisplayManager/LocalDisplayFactory \
+                                --dest org.gnome.DisplayManager \
+                                --method org.gnome.DisplayManager.LocalDisplayFactory.CreateTransientDisplay \
+                                > /dev/null
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m \
