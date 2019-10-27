@@ -4,6 +4,19 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+### Default sway settings
+# Please adjust in user-config
+    
+    # Logo key. Use Mod1 for Alt.
+    set $mod Mod4
+    # Home row direction keys, like vim
+    set $left h
+    set $down j
+    set $up k
+    set $right l
+    # Your preferred terminal emulator
+    set $term urxvt
+
 ### Include theme
 #
     include themes/manjaro
@@ -16,9 +29,9 @@
 #
     include applications
 
- # Your preferred application launcher
- # Note: it's recommended that you pass the final command to sway
- set $menu wofi --show=run
+# Your preferred application launcher
+# Note: it's recommended that you pass the final command to sway
+    set $menu wofi --show=run
 
 ### Key bindings
 #
@@ -194,6 +207,10 @@ bindsym $mod+r mode "resize"
     bindsym XF86AudioNext exec playerctl next
     bindsym XF86AudioPrev exec playerctl previous
     bindsym $mod+Shift+Return exec $filemanager
+
+    # Sreen brightness controls
+    bindsym XF86MonBrightnessUp exec light -A 10 #increase screen brightness
+    bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
 
     # Screenshots
     bindsym Print exec grim \"$HOME/Pictures/Screenshot_$(date +%Y%m%d)_$(date +%H%M%S).png"
