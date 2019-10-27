@@ -73,7 +73,7 @@
     "custom/pacman": {
         "format": "{}  ",
         "interval": 3600,                     // every hour
-        "exec": "checkupdates | wc -l",       // # of updates
+        "exec": "expr $(pamac checkupdates | wc -l) - 1",       // # of updates
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
         "on-click": "pamac-manager", // update system
         "signal": 8

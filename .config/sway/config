@@ -4,116 +4,23 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-### Keyboard setting
-
-input * xkb_layout "ch"
-
-### Variables
+### Include theme
 #
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-# Your preferred terminal emulator
-set $term kitty
+    include themes/manjaro
 
-set $filemanager nautilus
-
-################----------------THEMING----------------################
-
-font Fira Mono 9
-
-default_border pixel 3
-smart_borders on
-
-gaps inner 6
-
-# Your preferred application launcher
-# Note: it's recommended that you pass the final command to sway
-set $menu wofi --show=run
-
-# set gnome 
-
-set $gnome-schema org.gnome.desktop.interface
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
-    gsettings set $gnome-schema icon-theme 'Adwaita'
-    gsettings set $gnome-schema cursor-theme 'xcursor-breeze'
-}
-
-exec xrdb ~/.Xresources
-
-set $grey      #323232
-set $lightgrey #5c5c5c
-set $white     #eff0f1
-set $bg        #31363b
-set $black     #900000
-set $red       #CB4B16
-
-# Sway theme
-# class                   border     backgr.    text    indic.     child_border
-  client.focused          $lightgrey $bg        $white  $lightgrey $lightgrey
-  client.focused_inactive $bg        $bg        $white  $bg        $bg
-  client.unfocused        $bg        $bg        $white  $bg        $bg
-  client.urgent           $red       $red       $white  $black     $black 
-
-### Output configuration
+### Include user configuration
 #
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /home/simon/Pictures/code-2880x1800.jpg fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
+    include user-config
 
-output eDP-1 resolution 1920x1080 position 0,0
-output DP-5 resolution 2560x1440 position 1920,0
-
-### Idle configuration
+### Include application configurations
 #
-# Example configuration:
-#
-exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * dpms off"' \
-               resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 000000'
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-### Input configuration
-#
-# Example configuration:
-#
-#   input "2:14:SynPS/2_Synaptics_TouchPad" {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
-#
-
-    input "DELL081C:00 044E:121F Touchpad" {
-        dwt enabled
-        tap enabled
-        natural_scroll enabled
-    }
-
-# You can get the names of your inputs by running: swaymsg -t get_inputs
-# Read `man 5 sway-input` for more information about this section.
+    include applications
 
 ### Key bindings
 #
 # Basics:
 #
-    # Start a terminal
+     # Start a terminal
     bindsym $mod+Return exec $term
 
     # Kill focused window
