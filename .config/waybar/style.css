@@ -47,7 +47,7 @@ window#waybar.hidden {
     border-radius: 100%;
 }
 
-#clock, #battery, #cpu, #memory,#temperature, #backlight, #network, #pulseaudio, #tray, #mode, #idle_inhibitor {
+#clock, #battery, #cpu, #memory,#temperature, #backlight, #network, #pulseaudio, #tray, #mode, #idle_inhibitor, #custom-pacman, #custom-vpn {
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -85,6 +85,9 @@ label:focus {
 
 #battery {
      background-color: #0f3e3e;
+ }
+ #battery.warning:not(.charging) {
+     border-bottom: 2px solid #dd2241;
  }
 
 #tray {

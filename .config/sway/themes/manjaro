@@ -9,6 +9,7 @@
  smart_borders on
  smart_gaps on
  gaps inner 6
+ #gaps top 3
 
  # set gnome
 

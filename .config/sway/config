@@ -33,6 +33,15 @@
 # Note: it's recommended that you pass the final command to sway
     set $menu wofi --show=run
 
+# Your prefered locking mechanism, chose between gdbus -> gdm and swaylock
+#
+    set $locking gdbus call \
+                    --system \
+                    --object-path /org/gnome/DisplayManager/LocalDisplayFactory \
+                    --dest org.gnome.DisplayManager \
+                    --method org.gnome.DisplayManager.LocalDisplayFactory.CreateTransientDisplay \
+                    > /dev/null
+
 ### Key bindings
 #
 # Basics:
@@ -57,12 +66,7 @@
     bindsym $mod+Shift+c reload
 
     #sway lock
-    bindsym Ctrl+Alt+l exec  gdbus call \
-                                --system \
-                                --object-path /org/gnome/DisplayManager/LocalDisplayFactory \
-                                --dest org.gnome.DisplayManager \
-                                --method org.gnome.DisplayManager.LocalDisplayFactory.CreateTransientDisplay \
-                                > /dev/null
+    bindsym Ctrl+Alt+l exec $locking
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m \
@@ -227,6 +231,7 @@ bindsym $mod+r mode "resize"
 bar {
     swaybar_command waybar
     position top
+    height 25
 }
 
 
