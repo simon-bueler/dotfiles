@@ -47,7 +47,7 @@ window#waybar.hidden {
     border-radius: 100%;
 }
 
-#clock, #battery, #cpu, #memory,#temperature, #backlight, #network, #pulseaudio, #tray, #mode, #idle_inhibitor, #custom-pacman, #custom-vpn {
+#clock, #battery, #cpu, #memory,#temperature, #backlight, #network,#custom-bluetooth, #pulseaudio, #tray, #mode, #idle_inhibitor, #custom-pacman, #custom-vpn {
     padding: 0 10px;
     margin: 0 0px;
 }
@@ -76,6 +76,10 @@ label:focus {
 }
 
 #network {
+    background-color: #145252;
+}
+
+#custom-bluetooth {
     background-color: #145252;
 }
 

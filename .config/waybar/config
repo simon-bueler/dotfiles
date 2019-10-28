@@ -10,7 +10,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces","custom/block0","custom/arrow0","sway/mode"],
     "modules-center": [],
-    "modules-right": ["custom/arrow1","pulseaudio","custom/arrow2","cpu","custom/arrow3","memory","custom/arrow8","custom/vpn","custom/arrow4","custom/pacman","custom/arrow5","network","custom/arrow6","battery","custom/arrow7","clock"],
+    "modules-right": ["custom/arrow1","pulseaudio","custom/arrow2","cpu","custom/arrow3","memory","custom/arrow8","custom/vpn","custom/arrow4","custom/pacman","custom/arrow5","network","custom/bluetooth","custom/arrow6","battery","custom/arrow7","clock"],
     // Modules configuration
      "sway/workspaces": {
          "disable-scroll": true,
@@ -20,7 +20,7 @@
         "format": "!"
     },
     "clock": {
-	    "format": "{:%a, %b %-d %-I:%M %p}"
+	    "format": "{:%a, %b %-d %H:%M}"
     },
     "cpu": {
         "format": "{usage}% "
@@ -53,6 +53,10 @@
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-disconnected": "Disconnected ⚠",
         "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center network" 
+    },
+    "custom/bluetooth": {
+        "format": "",
+         "on-click": "blueberry"
     },
     "pulseaudio": {
         "scroll-step": 5,
