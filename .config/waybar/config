@@ -44,13 +44,14 @@
     "interval": 5,
     "format": "{}",
     "return-type": "json",
-    "exec": "~/.config/waybar/modules/vpn.sh"
+    "exec": "~/.config/waybar/modules/vpn.sh",
+    "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center network" 
     },
     "network": {
         "format-wifi": "",
         "format-ethernet": "",
         "format-disconnected": "",
-        "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center network" 
+        "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi" 
     },
     "custom/bluetooth": {
         "format": "",
