@@ -88,6 +88,11 @@ label:focus {
     background-color: #145252;
 }
 
+#custom-bluetooth.down {
+    background-color: #145252;
+    border-bottom: 2px solid #dd2241;
+}
+
 #memory {
     background-color: #0f3e3e;
 }
