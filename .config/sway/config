@@ -238,11 +238,10 @@ bar {
 # Autostart:
 #
 #
-exec --no-startup-id flashfocus &
-#exec pulseaudio &
-#exec dunst &
-exec slack &
 exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec "/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh"
 exec_always mako
+exec_always flashfocus
+exec_always nm-applet
 include /etc/sway/config.d/*

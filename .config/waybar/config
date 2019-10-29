@@ -44,14 +44,12 @@
     "interval": 5,
     "tooltip": false,
     "format": "{}",
-    "return-type": "json",
-    "exec": "$HOME/.config/waybar/wbm_vpn"
+    "exec": "nmcli -f TYPE con show --active | grep vpn | wc -l"
     },
     "network": {
-        // "interface": "wlp2s0", // (Optional) To force the use of this interface
-        "format-wifi": "({signalStrength}%) ",
-        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
         "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center network" 
     },
     "custom/bluetooth": {
@@ -77,10 +75,9 @@
     "custom/pacman": {
         "format": "{} ",
         "interval": 3600,                     // every hour
-        "exec": "expr $(pamac checkupdates | wc -l) - 1",       // # of updates
-        "exec-if": "exit 0",                  // always run; consider advanced run conditions
+        "exec": "pamac checkupdates -a -q | wc -l",       // # of updates
         "on-click": "pamac-manager", // update system
-        "signal": 8
+        "tooltip": false
     },
     "custom/block0": {
         "format": "█"

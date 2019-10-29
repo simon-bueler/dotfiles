@@ -6,14 +6,14 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: Dejavu Sans Mono;
+    font-family: "FontAwesome 5 Free Solid","Dejavu Sans Mono";
     font-size: 16px;
     min-height: 0;
 }
 
 window#waybar {
     background-color: #2F3D44;
-    border-bottom: 3px solid #1ABC9C;
+    border-top: 3px solid #1ABC9C;
     color: #1ABC9C;
     transition-property: background-color;
     transition-duration: 1s;
@@ -79,6 +79,11 @@ label:focus {
     background-color: #145252;
 }
 
+#network.disconnected {
+    background-color: #145252;
+    border-bottom: 2px solid #dd2241;
+}
+
 #custom-bluetooth {
     background-color: #145252;
 }
@@ -107,11 +112,8 @@ label:focus {
 }
 
 #custom-vpn.down {
-  border-bottom: 2px solid #dd2241;
-}
-
-#network.disconnected {
-    background: transparent;
+    background-color: #051515;
+    border-bottom: 2px solid #dd2241;
 }
 
 #pulseaudio {
@@ -119,8 +121,8 @@ label:focus {
 }
 
 #pulseaudio.muted {
-    background: #90b1b1;
-    color: #2a5c45;
+    background: #196767;
+    border-bottom: 2px solid #dd2241;
 }
 
 #idle_inhibitor {
