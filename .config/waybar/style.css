@@ -25,13 +25,14 @@ window#waybar.hidden {
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 #workspaces button {
-    padding: 0 5px;
+    padding: 3px 5px 0 5px;
     background-color: #0a2929;
 }
 
 #workspaces button.focused {
     background-color: rgba(255, 255, 255, 0.3);
     border-bottom: 3px solid rgba(0, 0, 0, 0.3);
+    padding-top: 6px;
 }
 
 #workspaces button.urgent {
