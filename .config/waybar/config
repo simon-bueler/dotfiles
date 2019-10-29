@@ -42,9 +42,9 @@
     },
     "custom/vpn": {
     "interval": 5,
-    "tooltip": false,
     "format": "{}",
-    "exec": "nmcli -f TYPE con show --active | grep vpn | wc -l"
+    "return-type": "json",
+    "exec": "~/.config/waybar/modules/vpn.sh"
     },
     "network": {
         "format-wifi": "",
@@ -54,7 +54,10 @@
     },
     "custom/bluetooth": {
         "format": "",
-         "on-click": "blueberry"
+        "interval": 5,
+        "return-type": "json",
+        "exec": "~/.config/waybar/modules/bluetooth.sh",
+        "on-click": "blueberry"
     },
     "pulseaudio": {
         "scroll-step": 5,
