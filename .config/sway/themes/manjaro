@@ -20,8 +20,6 @@
      gsettings set $gnome-schema cursor-theme 'xcursor-breeze'
  }
 
- # exec xrdb ~/.Xresources
-
  set $grey       #323232
  set $lightgreen #1abc9c
  set $white      #eff0f1

@@ -26,7 +26,7 @@
     include config.d/*
 
 # Your preferred application launcher
-# Note: it's recommended that you pass the final command to sway
+# Note: it'es recommended that you pass the final command to sway
     set $menu wofi --show=run
 
 # Your prefered locking mechanism, chose between gdbus -> gdm and swaylock
@@ -245,8 +245,8 @@ bar {
 #
 exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec "/usr/bin/gnome-keyring-daemon --start"
-# " --components=pkcs11,secrets,ssh"
+exec "eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
+exec "export SSH_AUTH_SOCK"
 exec_always mako
 exec_always flashfocus
 exec_always nm-applet
