@@ -55,7 +55,7 @@
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+Shift+q kill -15
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -245,8 +245,6 @@ bar {
 #
 exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec "eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)"
-exec "export SSH_AUTH_SOCK"
 exec_always mako
 exec_always flashfocus
 exec_always nm-applet
