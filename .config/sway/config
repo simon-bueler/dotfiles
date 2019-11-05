@@ -31,12 +31,12 @@
 
 # Your prefered locking mechanism, chose between gdbus -> gdm and swaylock
 #
-    set $locking sh ~/.config/sway/lock.sh
+    set $locking sh ~/.config/sway/scripts/lock.sh
 
 ### Idle configuration
 #
 #
-    exec swayidle -w \
+    exec_always swayidle -w \
             timeout 300 'exec $locking' \
             timeout 600 'swaymsg "output * dpms off"' \
             resume 'swaymsg "output * dpms on"' \
@@ -229,6 +229,9 @@ bindsym $mod+r mode "resize"
     # Screenshots
     bindsym Print exec grim \"$HOME/Pictures/Screenshot_$(date +%Y%m%d)_$(date +%H%M%S).png"
 
+    # Part screenshot
+    bindsym Ctrl+Print exec slurp | grim -g - \"$HOME/Pictures/Screenshot_$(date +%Y%m%d)_$(date +%H%M%S).png"
+
 #
 # Status Bar:
 #
@@ -248,4 +251,5 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec_always mako
 exec_always flashfocus
 exec_always nm-applet
+exec_always sh ~/.config/sway/scripts/keyring.sh
 include /etc/sway/config.d/*

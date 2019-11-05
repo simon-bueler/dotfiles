@@ -51,6 +51,7 @@
         "format-wifi": "",
         "format-ethernet": "",
         "format-disconnected": "",
+        "intervat": 5,
         "on-click": "env XDG_CURRENT_DESKTOP=GNOME gnome-control-center wifi" 
     },
     "custom/bluetooth": {
