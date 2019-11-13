@@ -1,9 +1,12 @@
-default-timeout=10000
+## Default Mako Config
+ignore-timeout=1
+default-timeout=3333
 anchor=top-center
+max-visible=3
 
 font=Fira Mono 9
 border-size=0
-border-radius=15
 background-color=#333333AA
 margin=20
 padding=15
+width=400

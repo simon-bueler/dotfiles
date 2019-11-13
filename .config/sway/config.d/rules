@@ -8,3 +8,4 @@ for_window [class="(?i)pinentry"] floating enable
 for_window [app_id="pamac-manager"] floating enable
 for_window [app_id="blueberry.py"] floating enable
 for_window [app_id="gnome-control-center"] floating enable
+for_window [app_id="nm-openconnect-auth-dialog"] floating enable

@@ -23,13 +23,13 @@ fi
 # Then, try to switch GDM's login screen. If login screen uses Xorg or if greeter
 # session was not killed yet (GDM may kill its greeter if Wayland is used,
 # for performance) it's needed to switch to login screen's TTY.
-loginctl activate \
-    $(loginctl list-sessions | grep -m 1 gdm | awk '{print $1}')
-
+if [[ ! -z $(loginctl list-sessions | grep -m 1 gdm | awk '{print $1}') ]]; then
+    loginctl activate \
+        $(loginctl list-sessions | grep -m 1 gdm | awk '{print $1}')
+else
 # If GDM killed its greeter it's needed to call internal GDM's d-bus method to
 # start new greeter session. In this case, GDM will automatically switch to proper
 # TTY. This *won't work* if greeter session is already alive.
-if [[ $? != 0 ]]; then
     gdbus call \
         --system \
         --object-path /org/gnome/DisplayManager/LocalDisplayFactory \
