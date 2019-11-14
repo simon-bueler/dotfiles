@@ -1,6 +1,6 @@
 ## Default Mako Config
 ignore-timeout=1
-default-timeout=3333
+default-timeout=5555
 anchor=top-center
 max-visible=3
 
@@ -9,4 +9,4 @@ border-size=0
 background-color=#333333AA
 margin=20
 padding=15
-width=400
+width=800
