@@ -6,7 +6,8 @@ max-visible=3
 
 font=Fira Mono 9
 border-size=0
-background-color=#333333AA
+background-color=#2F3D44
+border-color=#1ABC9C
 margin=20
 padding=15
 width=800
