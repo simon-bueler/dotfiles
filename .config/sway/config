@@ -248,8 +248,8 @@ bar {
 #
 exec dbus-daemon --session --address=unix:path=$XDG_RUNTIME_DIR/bus
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec_always mako
-exec_always flashfocus
-exec_always nm-applet
-exec_always sh ~/.config/sway/scripts/keyring.sh
+exec mako
+exec flashfocus
+exec nm-applet
+exec sh ~/.config/sway/scripts/keyring.sh
 include /etc/sway/config.d/*

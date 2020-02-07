@@ -70,6 +70,7 @@ You should setup a `~/.config/sway/config.d/user-config` file in which you shoul
 * blueberry
 * waybar
 * mako
+* blueberry
 * ...
 
 
