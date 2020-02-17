@@ -71,6 +71,7 @@ You should setup a `~/.config/sway/config.d/user-config` file in which you shoul
 * waybar
 * mako
 * blueberry
+* sgtk-menu
 * ...
 
 
