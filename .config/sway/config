@@ -31,7 +31,7 @@
 
 # Your prefered locking mechanism, chose between gdbus -> gdm and swaylock
 #
-    set $locking sh ~/.config/sway/scripts/lock.sh
+    set $locking swaylock
 
 ### Idle configuration
 #

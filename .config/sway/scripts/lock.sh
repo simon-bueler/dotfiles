@@ -1,40 +1,31 @@
 #!/bin/bash
-# First, try to lock screen through logind.
-loginctl lock-session
-# logind may fail if this script will be ran from gnome-terminal when GNOME
-# session is managed by systemd. Instead, try to use d-bus method provided by
-# gnome-shell or gnome-screensaver (the latter is in GNOME Flashback).
-if [[ $? != 0 ]]; then
-    gdbus call \
+
+# Lock user session. Use gnome-shell's dbus method instead of `loginctl lock-session`
+# to render the animation. Otherwise, screen image visible before locking may be cached
+# in user TTY which may violate user privacy if someone try to switch to that TTY.
+gdbus call \
        --session \
        --object-path /org/gnome/ScreenSaver \
        --dest org.gnome.ScreenSaver \
        --method org.gnome.ScreenSaver.Lock \
        > /dev/null
 
-# If screen was locked by logind, wait a moment. Without this, screen image
-# visible before locking may be cached on user TTY which may violate user privacy
-# if someone try to switch to that TTY. This is not needed with second method
-# because `gdbus` command will wait until work is finished.
-else
-    sleep 0.4
-fi
+greeter_session=$(loginctl list-sessions | grep -m 1 gdm | awk '{print (}')
 
-# Then, try to switch GDM's login screen. If login screen uses Xorg or if greeter
-# session was not killed yet (GDM may kill its greeter if Wayland is used,
-# for performance) it's needed to switch to login screen's TTY.
-if [[ ! -z $(loginctl list-sessions | grep -m 1 gdm | awk '{print $1}') ]]; then
-    loginctl activate \
-        $(loginctl list-sessions | grep -m 1 gdm | awk '{print $1}')
+if [[! -z $greeter_session  ]]; then
+   # If login screen uses X11 or greeter session was not killed yet (on Wayland,
+   # greeter is killed after some timeout for performance) it's needed to switch
+   # to login screen's TTY manually.
+   loginctl activate $greeter_session
 else
-# If GDM killed its greeter it's needed to call internal GDM's d-bus method to
-# start new greeter session. In this case, GDM will automatically switch to proper
-# TTY. This *won't work* if greeter session is already alive.
-    gdbus call \
-        --system \
-        --object-path /org/gnome/DisplayManager/LocalDisplayFactory \
-        --dest org.gnome.DisplayManager \
-        --method org.gnome.DisplayManager.LocalDisplayFactory.CreateTransientDisplay \
-        > /dev/null
+   # If GDM killed its greeter it's needed to call internal GDM's dbus method to
+   # start new greeter session. In this case, GDM will automatically switch to
+   # proper TTY. This *won't work* if greeter session is already alive.
+   gdbus call \
+       --system \
+       --object-path /org/gnome/DisplayManager/LocalDisplayFactory \
+       --dest org.gnome.DisplayManager \
+       --method org.gnome.DisplayManager.LocalDisplayFactory.CreateTransientDisplay \
+       > /dev/null
 fi
 sleep 4.0

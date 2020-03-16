@@ -72,6 +72,12 @@ You should setup a `~/.config/sway/config.d/user-config` file in which you shoul
 * mako
 * blueberry
 * sgtk-menu
+* greetd
+* greetd-gtkgreet
 * ...
 
+### Create user for greetd
+```
+useradd --system --no-create-home --home-dir /etc/greetd --groups video --shell /usr/bin/nologin
+```
 
