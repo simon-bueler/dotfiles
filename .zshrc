@@ -117,3 +117,6 @@ alias screen9='screen -fn -h 10000 /dev/ttyUSB9 115200'
 alias screen10='screen -fn -h 10000 /dev/ttyUSB10 115200'
 alias screen11='screen -fn -h 10000 /dev/ttyUSB11 115200'
 alias screen12='screen -fn -h 10000 /dev/ttyUSB12 115200'
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
