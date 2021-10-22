@@ -1,3 +1,6 @@
+# Outdated
+I mostly use the official Manjaro comunity edition of sway (https://github.com/Manjaro-Sway/manjaro-sway) so I only use some files here
+
 # dotfiles
 The folders/files should be linked seperately into ~./.config (`ln -s <repo>/* ~/.config/*`), if there are folders present delete or rename them. Why manual you ask? Because you should know what you are going to do in order to prevent you from breaking your installation. And that way you can decide which settings you intend to use and which not. 
 
